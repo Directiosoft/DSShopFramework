@@ -33,6 +33,8 @@
 		3A0C4BD51E3A3AB8002E3B0A /* WKWebView+FLWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0C4BCE1E3A3AB8002E3B0A /* WKWebView+FLWKWebView.m */; };
 		3ADB571820982021005F8179 /* UserDataManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ADB571620982021005F8179 /* UserDataManager.h */; };
 		3ADB571920982021005F8179 /* UserDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADB571720982021005F8179 /* UserDataManager.m */; };
+		3ADB571C209823BE005F8179 /* SystemInfoManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ADB571A209823BE005F8179 /* SystemInfoManager.h */; };
+		3ADB571D209823BE005F8179 /* SystemInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADB571B209823BE005F8179 /* SystemInfoManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -78,6 +80,8 @@
 		3A0C4BCE1E3A3AB8002E3B0A /* WKWebView+FLWKWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+FLWKWebView.m"; sourceTree = "<group>"; };
 		3ADB571620982021005F8179 /* UserDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDataManager.h; sourceTree = "<group>"; };
 		3ADB571720982021005F8179 /* UserDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDataManager.m; sourceTree = "<group>"; };
+		3ADB571A209823BE005F8179 /* SystemInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemInfoManager.h; sourceTree = "<group>"; };
+		3ADB571B209823BE005F8179 /* SystemInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemInfoManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +173,8 @@
 		3ADB571520982021005F8179 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				3ADB571A209823BE005F8179 /* SystemInfoManager.h */,
+				3ADB571B209823BE005F8179 /* SystemInfoManager.m */,
 				3ADB571620982021005F8179 /* UserDataManager.h */,
 				3ADB571720982021005F8179 /* UserDataManager.m */,
 			);
@@ -189,6 +195,7 @@
 				3A0C4BD41E3A3AB8002E3B0A /* UIWebView+FLUIWebView.h in Headers */,
 				2E0A27EF1D50EE1D00A02398 /* CommonShop.h in Headers */,
 				3A0C4BD31E3A3AB8002E3B0A /* DSWebView.h in Headers */,
+				3ADB571C209823BE005F8179 /* SystemInfoManager.h in Headers */,
 				3A0C4BD21E3A3AB8002E3B0A /* WKWebView+FLWKWebView.h in Headers */,
 				2E0A27EB1D50EDB500A02398 /* NSString+Shop.h in Headers */,
 				2E72E1671D448E8300D91FBA /* AppInit.h in Headers */,
@@ -267,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ADB571D209823BE005F8179 /* SystemInfoManager.m in Sources */,
 				3ADB571920982021005F8179 /* UserDataManager.m in Sources */,
 				2E0A27F41D50F46000A02398 /* UserLocalData.m in Sources */,
 				2E0A27EA1D50EDB500A02398 /* NSData+Shop.m in Sources */,
