@@ -31,6 +31,8 @@
 		3A0C4BD31E3A3AB8002E3B0A /* DSWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A0C4BCC1E3A3AB8002E3B0A /* DSWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A0C4BD41E3A3AB8002E3B0A /* UIWebView+FLUIWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A0C4BCD1E3A3AB8002E3B0A /* UIWebView+FLUIWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A0C4BD51E3A3AB8002E3B0A /* WKWebView+FLWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0C4BCE1E3A3AB8002E3B0A /* WKWebView+FLWKWebView.m */; };
+		3ADB571820982021005F8179 /* UserDataManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ADB571620982021005F8179 /* UserDataManager.h */; };
+		3ADB571920982021005F8179 /* UserDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADB571720982021005F8179 /* UserDataManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -74,6 +76,8 @@
 		3A0C4BCC1E3A3AB8002E3B0A /* DSWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSWebView.h; sourceTree = "<group>"; };
 		3A0C4BCD1E3A3AB8002E3B0A /* UIWebView+FLUIWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+FLUIWebView.h"; sourceTree = "<group>"; };
 		3A0C4BCE1E3A3AB8002E3B0A /* WKWebView+FLWKWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+FLWKWebView.m"; sourceTree = "<group>"; };
+		3ADB571620982021005F8179 /* UserDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDataManager.h; sourceTree = "<group>"; };
+		3ADB571720982021005F8179 /* UserDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDataManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,7 @@
 		2E72E15C1D4488BA00D91FBA /* ShopCommon */ = {
 			isa = PBXGroup;
 			children = (
+				3ADB571520982021005F8179 /* Manager */,
 				2E0A27ED1D50EE1D00A02398 /* CommonShop.h */,
 				2E0A27EE1D50EE1D00A02398 /* CommonShop.m */,
 				2E0A27DC1D50E1DD00A02398 /* Category */,
@@ -161,6 +166,15 @@
 			path = DSWebView;
 			sourceTree = "<group>";
 		};
+		3ADB571520982021005F8179 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				3ADB571620982021005F8179 /* UserDataManager.h */,
+				3ADB571720982021005F8179 /* UserDataManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -181,6 +195,7 @@
 				2E72E15E1D4488BB00D91FBA /* ShopCommon.h in Headers */,
 				2E0A27F31D50F46000A02398 /* UserLocalData.h in Headers */,
 				2EEB0D601D6FFF5E00C51DAE /* NSDate+Shop.h in Headers */,
+				3ADB571820982021005F8179 /* UserDataManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ADB571920982021005F8179 /* UserDataManager.m in Sources */,
 				2E0A27F41D50F46000A02398 /* UserLocalData.m in Sources */,
 				2E0A27EA1D50EDB500A02398 /* NSData+Shop.m in Sources */,
 				2E72E16D1D44901300D91FBA /* Reachability.m in Sources */,
