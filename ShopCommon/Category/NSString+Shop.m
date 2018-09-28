@@ -3,7 +3,7 @@
 //  ShopCommon
 //
 //  Created by HanSanghong on 2016. 8. 2..
-//  Copyright © 2016년 pionnet. All rights reserved.
+//  Copyright © 2016년 Directionsoft. All rights reserved.
 //
 
 #import "NSString+Shop.h"
@@ -23,19 +23,23 @@
 
 - (NSDictionary *)parseURLParams
 {
+    NSMutableDictionary *dictResult = [NSMutableDictionary dictionary];
+    
     if ([self isEqualToString:@""]) {
-        return nil;
+        return dictResult;
     }
     
-    NSArray *pairs = [self componentsSeparatedByString:@"&"];
-    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-    for (NSString *pair in pairs) {
-        NSArray *kv = [pair componentsSeparatedByString:@"="];
-        NSString *val =
-        [kv[1] stringByRemovingPercentEncoding];
-        params[kv[0]] = val;
+    NSArray *array = [self componentsSeparatedByString:@"&"];
+    for (NSString *s in array) {
+        NSRange range = [s rangeOfString:@"="];
+        if (range.location != NSNotFound) {
+            NSString *key = [s substringToIndex:range.location];
+            NSString *value = [s substringFromIndex:range.location+1];
+            
+            [dictResult setValue:value forKey:key];
+        }
     }
-    return params;
+    return dictResult;
 }
 
 - (BOOL)iTunesURL
@@ -73,6 +77,40 @@
 {
     return [self stringByReplacingOccurrencesOfString:@" " withString:@""];
 }
+
+- (UIColor *)colorFromHexString
+{
+    NSString *cleanString = [self stringByReplacingOccurrencesOfString:@"#" withString:@""];
+    if([cleanString length] == 6) {
+        cleanString = [@"ff" stringByAppendingString:cleanString];
+    }
+    
+    if([cleanString length] == 3) {
+        cleanString = [NSString stringWithFormat:@"%@%@%@%@%@%@",
+                       [cleanString substringWithRange:NSMakeRange(1, 1)],[cleanString substringWithRange:NSMakeRange(1, 1)],
+                       [cleanString substringWithRange:NSMakeRange(2, 1)],[cleanString substringWithRange:NSMakeRange(2, 1)],
+                       [cleanString substringWithRange:NSMakeRange(3, 1)],[cleanString substringWithRange:NSMakeRange(3, 1)]];
+    }
+    
+    unsigned int baseValue;
+    [[NSScanner scannerWithString:cleanString] scanHexInt:&baseValue];
+    
+    float red = ((baseValue >> 16) & 0xFF)/255.0f;
+    float green = ((baseValue >> 8) & 0xFF)/255.0f;
+    float blue = ((baseValue >> 0) & 0xFF)/255.0f;
+    float alpha = ((baseValue >> 24) & 0xFF)/255.0f;
+    
+    return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
+}
+
+- (NSString *)commaString
+{
+    NSNumberFormatter *nFormat = [[NSNumberFormatter alloc] init];
+    [nFormat setNumberStyle:NSNumberFormatterDecimalStyle];
+    NSString *sResult = [nFormat stringFromNumber:[NSNumber numberWithInt:[self intValue]]];
+    return sResult;
+}
+
 
 
 @end

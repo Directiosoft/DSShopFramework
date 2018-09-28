@@ -8,7 +8,6 @@
 
 #import "DSWebView.h"
 
-#import "CommonShop.h"
 #import "NSString+Shop.h"
 #import "AppInit.h"
 
@@ -57,9 +56,9 @@
     
     NSString *sFuncName = dictQuery[@"func"];
     NSString *sParam = dictQuery[@"params"];
-    sParam = [sParam stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString *callback = dictQuery[@"callback"];
+    Param = [sParam stringByRemovingPercentEncoding];
     
+    NSString *callback = dictQuery[@"callback"];
     sFuncName = [sFuncName isEqualToString:@""] ? @"" : [sFuncName lowercaseString];
     
     NSLog(@"aQuery is %@", aQuery);

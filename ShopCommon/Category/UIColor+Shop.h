@@ -3,7 +3,7 @@
 //  ShopCommon
 //
 //  Created by HanSanghong on 2016. 8. 26..
-//  Copyright © 2016년 pionnet. All rights reserved.
+//  Copyright © 2016년 Directionsoft. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

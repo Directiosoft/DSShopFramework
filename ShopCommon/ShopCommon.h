@@ -3,7 +3,7 @@
 //  ShopCommon
 //
 //  Created by HanSanghong on 2016. 7. 24..
-//  Copyright © 2016년 pionnet. All rights reserved.
+//  Copyright © 2016년 Directionsoft. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -35,11 +35,10 @@
 //
 // Device Width & Height
 //
-#define kScreenBoundsWidth              [[UIScreen mainScreen] bounds].size.width
-#define kScreenBoundsHeight             [[UIScreen mainScreen] bounds].size.height
+#define kDeviceScreenSize               [[UIScreen mainScreen] bounds].size
 
 //
-#define StatusBarHeight                 (([[UIDevice currentDevice].systemVersion floatValue] < 7) ? 0 : 20)
+#define StatusBarHeight                 [[UIApplication sharedApplication] statusBarFrame].size.height
 
 //
 // Color Function Define

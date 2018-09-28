@@ -11,10 +11,6 @@
 		2E0A27EA1D50EDB500A02398 /* NSData+Shop.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0A27E61D50EDB500A02398 /* NSData+Shop.m */; };
 		2E0A27EB1D50EDB500A02398 /* NSString+Shop.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E0A27E71D50EDB500A02398 /* NSString+Shop.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2E0A27EC1D50EDB500A02398 /* NSString+Shop.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0A27E81D50EDB500A02398 /* NSString+Shop.m */; };
-		2E0A27EF1D50EE1D00A02398 /* CommonShop.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E0A27ED1D50EE1D00A02398 /* CommonShop.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2E0A27F01D50EE1D00A02398 /* CommonShop.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0A27EE1D50EE1D00A02398 /* CommonShop.m */; };
-		2E0A27F31D50F46000A02398 /* UserLocalData.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E0A27F11D50F46000A02398 /* UserLocalData.h */; };
-		2E0A27F41D50F46000A02398 /* UserLocalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E0A27F21D50F46000A02398 /* UserLocalData.m */; };
 		2E72E15E1D4488BB00D91FBA /* ShopCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E72E15D1D4488BB00D91FBA /* ShopCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2E72E1671D448E8300D91FBA /* AppInit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E72E1651D448E8300D91FBA /* AppInit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2E72E1681D448E8300D91FBA /* AppInit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E72E1661D448E8300D91FBA /* AppInit.m */; };
@@ -56,10 +52,6 @@
 		2E0A27E61D50EDB500A02398 /* NSData+Shop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Shop.m"; sourceTree = "<group>"; };
 		2E0A27E71D50EDB500A02398 /* NSString+Shop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Shop.h"; sourceTree = "<group>"; };
 		2E0A27E81D50EDB500A02398 /* NSString+Shop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Shop.m"; sourceTree = "<group>"; };
-		2E0A27ED1D50EE1D00A02398 /* CommonShop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonShop.h; sourceTree = "<group>"; };
-		2E0A27EE1D50EE1D00A02398 /* CommonShop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonShop.m; sourceTree = "<group>"; };
-		2E0A27F11D50F46000A02398 /* UserLocalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLocalData.h; sourceTree = "<group>"; };
-		2E0A27F21D50F46000A02398 /* UserLocalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLocalData.m; sourceTree = "<group>"; };
 		2E72E15A1D4488BA00D91FBA /* ShopCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ShopCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E72E15D1D4488BB00D91FBA /* ShopCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopCommon.h; sourceTree = "<group>"; };
 		2E72E15F1D4488BB00D91FBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -135,15 +127,11 @@
 				3A22662C209B0C3300BEF593 /* Library */,
 				3ADB571E2098268E005F8179 /* Controller */,
 				3ADB571520982021005F8179 /* Manager */,
-				2E0A27ED1D50EE1D00A02398 /* CommonShop.h */,
-				2E0A27EE1D50EE1D00A02398 /* CommonShop.m */,
 				2E0A27DC1D50E1DD00A02398 /* Category */,
 				2E72E15D1D4488BB00D91FBA /* ShopCommon.h */,
 				2E72E15F1D4488BB00D91FBA /* Info.plist */,
 				2E72E1651D448E8300D91FBA /* AppInit.h */,
 				2E72E1661D448E8300D91FBA /* AppInit.m */,
-				2E0A27F11D50F46000A02398 /* UserLocalData.h */,
-				2E0A27F21D50F46000A02398 /* UserLocalData.m */,
 			);
 			path = ShopCommon;
 			sourceTree = "<group>";
@@ -204,13 +192,11 @@
 				3A226631209B0C3300BEF593 /* DSWebView.h in Headers */,
 				3A226632209B0C3300BEF593 /* UIWebView+FLUIWebView.h in Headers */,
 				3A226637209B0C3300BEF593 /* Reachability.h in Headers */,
-				2E0A27EF1D50EE1D00A02398 /* CommonShop.h in Headers */,
 				3A226630209B0C3300BEF593 /* WKWebView+FLWKWebView.h in Headers */,
 				3ADB571C209823BE005F8179 /* SystemInfoManager.h in Headers */,
 				2E0A27EB1D50EDB500A02398 /* NSString+Shop.h in Headers */,
 				2E72E1671D448E8300D91FBA /* AppInit.h in Headers */,
 				2E72E15E1D4488BB00D91FBA /* ShopCommon.h in Headers */,
-				2E0A27F31D50F46000A02398 /* UserLocalData.h in Headers */,
 				2EEB0D601D6FFF5E00C51DAE /* NSDate+Shop.h in Headers */,
 				3A226633209B0C3300BEF593 /* FLWebViewProvider.h in Headers */,
 				3ADB571820982021005F8179 /* UserDataManager.h in Headers */,
@@ -245,7 +231,7 @@
 		2E72E1511D4488BA00D91FBA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = pionnet;
 				TargetAttributes = {
 					2E72E1591D4488BA00D91FBA = {
@@ -259,6 +245,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 2E72E1501D4488BA00D91FBA;
 			productRefGroup = 2E72E15B1D4488BA00D91FBA /* Products */;
@@ -290,14 +277,12 @@
 				3ADB571920982021005F8179 /* UserDataManager.m in Sources */,
 				3A22662F209B0C3300BEF593 /* UIWebView+FLUIWebView.m in Sources */,
 				3A226635209B0C3300BEF593 /* DSWebView.m in Sources */,
-				2E0A27F41D50F46000A02398 /* UserLocalData.m in Sources */,
 				2E0A27EA1D50EDB500A02398 /* NSData+Shop.m in Sources */,
 				2EEB0D651D7001A300C51DAE /* UIColor+Shop.m in Sources */,
 				2EEB0D611D6FFF5E00C51DAE /* NSDate+Shop.m in Sources */,
 				3ADB5722209826AE005F8179 /* BaseController.m in Sources */,
 				3A226636209B0C3300BEF593 /* Reachability.m in Sources */,
 				2E72E1681D448E8300D91FBA /* AppInit.m in Sources */,
-				2E0A27F01D50EE1D00A02398 /* CommonShop.m in Sources */,
 				2E0A27EC1D50EDB500A02398 /* NSString+Shop.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,13 +299,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -345,7 +340,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -362,13 +357,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -398,6 +403,7 @@
 		2E72E1631D4488BB00D91FBA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -419,6 +425,7 @@
 		2E72E1641D4488BB00D91FBA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
