@@ -10,7 +10,9 @@
 
 @interface NSData (Shop)
 
+//NSData형식의 Push token을 NSString으로 변환
 - (NSString *)makeDeviceToken;
+//NSUTFEncoding 방식으로 NSStirng으로 변환
 - (NSString *)string;
 
 @end

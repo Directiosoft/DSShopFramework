@@ -10,7 +10,9 @@
 
 @interface NSDate (Shop)
 
+//NSDate를 yymmdd 형식의 NSString으로 변환
 - (NSString *)yyyymmdd;
+//NSDate를 지정된 포맷(dFormat)의 NSString으로 변환
 - (NSString *)strWithFormat:(NSString *)dFormat;
 
 @end

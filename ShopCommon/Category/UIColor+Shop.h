@@ -10,6 +10,7 @@
 
 @interface UIColor (Shop)
 
+//UIColor to UIImage로 변환
 - (UIImage *)createImage;
 
 @end
