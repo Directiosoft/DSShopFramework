@@ -17,8 +17,6 @@
 // 이 함수는 UIWebView인 경우에만 가능
 + (void)setCookie:(NSString *)cookieName value:(NSString *)cookieValue domain:(NSString *)cookieDomain;
 
-// 네트웍 연결 여부 확인 YES or NO
-+ (BOOL)checkNetwork;
 
 // 앱 종료
 + (void)AppExit;

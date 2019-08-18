@@ -7,7 +7,6 @@
 //
 
 #import "AppInit.h"
-#import "Reachability.h"
 
 @implementation AppInit
 
@@ -29,12 +28,6 @@
                   nil];
     NSHTTPCookie *myCookie = [[NSHTTPCookie alloc] initWithProperties:properties];
     [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie:myCookie];
-}
-
-+ (BOOL)checkNetwork
-{
-    NetworkStatus netStatus = [[Reachability reachabilityForInternetConnection] currentReachabilityStatus];
-    return (netStatus != NotReachable);
 }
 
 + (void)AppExit
