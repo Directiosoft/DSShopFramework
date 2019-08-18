@@ -14,24 +14,24 @@
 		2E72E15E1D4488BB00D91FBA /* ShopCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E72E15D1D4488BB00D91FBA /* ShopCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2E72E1671D448E8300D91FBA /* AppInit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E72E1651D448E8300D91FBA /* AppInit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2E72E1681D448E8300D91FBA /* AppInit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E72E1661D448E8300D91FBA /* AppInit.m */; };
-		2EEB0D601D6FFF5E00C51DAE /* NSDate+Shop.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EEB0D5E1D6FFF5E00C51DAE /* NSDate+Shop.h */; };
+		2EEB0D601D6FFF5E00C51DAE /* NSDate+Shop.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EEB0D5E1D6FFF5E00C51DAE /* NSDate+Shop.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2EEB0D611D6FFF5E00C51DAE /* NSDate+Shop.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEB0D5F1D6FFF5E00C51DAE /* NSDate+Shop.m */; };
-		2EEB0D641D7001A300C51DAE /* UIColor+Shop.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EEB0D621D7001A300C51DAE /* UIColor+Shop.h */; };
+		2EEB0D641D7001A300C51DAE /* UIColor+Shop.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EEB0D621D7001A300C51DAE /* UIColor+Shop.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2EEB0D651D7001A300C51DAE /* UIColor+Shop.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEB0D631D7001A300C51DAE /* UIColor+Shop.m */; };
 		3A22662F209B0C3300BEF593 /* UIWebView+FLUIWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A226625209B0C3300BEF593 /* UIWebView+FLUIWebView.m */; };
-		3A226630209B0C3300BEF593 /* WKWebView+FLWKWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A226626209B0C3300BEF593 /* WKWebView+FLWKWebView.h */; };
-		3A226631209B0C3300BEF593 /* DSWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A226627209B0C3300BEF593 /* DSWebView.h */; };
-		3A226632209B0C3300BEF593 /* UIWebView+FLUIWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A226628209B0C3300BEF593 /* UIWebView+FLUIWebView.h */; };
-		3A226633209B0C3300BEF593 /* FLWebViewProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A226629209B0C3300BEF593 /* FLWebViewProvider.h */; };
+		3A226630209B0C3300BEF593 /* WKWebView+FLWKWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A226626209B0C3300BEF593 /* WKWebView+FLWKWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A226631209B0C3300BEF593 /* DSWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A226627209B0C3300BEF593 /* DSWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A226632209B0C3300BEF593 /* UIWebView+FLUIWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A226628209B0C3300BEF593 /* UIWebView+FLUIWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A226633209B0C3300BEF593 /* FLWebViewProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A226629209B0C3300BEF593 /* FLWebViewProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A226634209B0C3300BEF593 /* WKWebView+FLWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A22662A209B0C3300BEF593 /* WKWebView+FLWKWebView.m */; };
 		3A226635209B0C3300BEF593 /* DSWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A22662B209B0C3300BEF593 /* DSWebView.m */; };
 		3A226636209B0C3300BEF593 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A22662D209B0C3300BEF593 /* Reachability.m */; };
-		3A226637209B0C3300BEF593 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A22662E209B0C3300BEF593 /* Reachability.h */; };
-		3ADB571820982021005F8179 /* UserDataManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ADB571620982021005F8179 /* UserDataManager.h */; };
+		3A226637209B0C3300BEF593 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A22662E209B0C3300BEF593 /* Reachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3ADB571820982021005F8179 /* UserDataManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ADB571620982021005F8179 /* UserDataManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3ADB571920982021005F8179 /* UserDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADB571720982021005F8179 /* UserDataManager.m */; };
-		3ADB571C209823BE005F8179 /* SystemInfoManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ADB571A209823BE005F8179 /* SystemInfoManager.h */; };
+		3ADB571C209823BE005F8179 /* SystemInfoManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ADB571A209823BE005F8179 /* SystemInfoManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3ADB571D209823BE005F8179 /* SystemInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADB571B209823BE005F8179 /* SystemInfoManager.m */; };
-		3ADB5721209826AE005F8179 /* BaseController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ADB571F209826AE005F8179 /* BaseController.h */; };
+		3ADB5721209826AE005F8179 /* BaseController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ADB571F209826AE005F8179 /* BaseController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3ADB5722209826AE005F8179 /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADB5720209826AE005F8179 /* BaseController.m */; };
 /* End PBXBuildFile section */
 
@@ -186,20 +186,20 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EEB0D641D7001A300C51DAE /* UIColor+Shop.h in Headers */,
 				2E0A27E91D50EDB500A02398 /* NSData+Shop.h in Headers */,
+				2EEB0D641D7001A300C51DAE /* UIColor+Shop.h in Headers */,
 				3ADB5721209826AE005F8179 /* BaseController.h in Headers */,
 				3A226631209B0C3300BEF593 /* DSWebView.h in Headers */,
 				3A226632209B0C3300BEF593 /* UIWebView+FLUIWebView.h in Headers */,
 				3A226637209B0C3300BEF593 /* Reachability.h in Headers */,
 				3A226630209B0C3300BEF593 /* WKWebView+FLWKWebView.h in Headers */,
 				3ADB571C209823BE005F8179 /* SystemInfoManager.h in Headers */,
-				2E0A27EB1D50EDB500A02398 /* NSString+Shop.h in Headers */,
-				2E72E1671D448E8300D91FBA /* AppInit.h in Headers */,
-				2E72E15E1D4488BB00D91FBA /* ShopCommon.h in Headers */,
 				2EEB0D601D6FFF5E00C51DAE /* NSDate+Shop.h in Headers */,
 				3A226633209B0C3300BEF593 /* FLWebViewProvider.h in Headers */,
 				3ADB571820982021005F8179 /* UserDataManager.h in Headers */,
+				2E0A27EB1D50EDB500A02398 /* NSString+Shop.h in Headers */,
+				2E72E1671D448E8300D91FBA /* AppInit.h in Headers */,
+				2E72E15E1D4488BB00D91FBA /* ShopCommon.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +244,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -414,7 +415,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pionnet.ShopCommon;
+				PRODUCT_BUNDLE_IDENTIFIER = com.directionsoft.shopcommon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -436,7 +437,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pionnet.ShopCommon;
+				PRODUCT_BUNDLE_IDENTIFIER = com.directionsoft.shopcommon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -56,7 +56,7 @@
     
     NSString *sFuncName = dictQuery[@"func"];
     NSString *sParam = dictQuery[@"params"];
-    Param = [sParam stringByRemovingPercentEncoding];
+    sParam = [sParam stringByRemovingPercentEncoding];
     
     NSString *callback = dictQuery[@"callback"];
     sFuncName = [sFuncName isEqualToString:@""] ? @"" : [sFuncName lowercaseString];
