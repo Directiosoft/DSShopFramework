@@ -16,6 +16,9 @@
  - NSString *aName = [IUserDataManager getString:@"name"];
  
 */
+
+NS_ASSUME_NONNULL_BEGIN
+
 #define IUserDataManager [UserDataManager sharedInstance]
 
 @interface UserDataManager : NSObject
@@ -35,3 +38,5 @@
 - (NSArray *)getArray:(NSString *)aKey;
 
 @end
+
+NS_ASSUME_NONNULL_END

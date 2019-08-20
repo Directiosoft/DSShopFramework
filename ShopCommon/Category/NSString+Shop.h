@@ -27,6 +27,8 @@
 //   - http, https, about:none, itms-apps, itms-appss
 - (BOOL)isAppScheme;
 
+- (BOOL)isBasicProtocol;
+- (BOOL)isAppstoreProtocol;
 //
 - (NSString *)trim;
 

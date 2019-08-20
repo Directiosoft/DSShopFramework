@@ -8,14 +8,32 @@
 
 #import "DSWebView.h"
 
-#import "NSString+Shop.h"
-#import "AppInit.h"
+#import "ShopCommon.h"
 
-@interface DSWebView()  <UIWebViewDelegate, WKNavigationDelegate, WKUIDelegate>
+@interface DSWebView()  <
+                        WKUIDelegate,
+                        WKNavigationDelegate,
+                        WKScriptMessageHandler,
+                        UIScrollViewDelegate
+                        >
 {
     BOOL                bLoaded;
     //LoadingView         *loading;
 }
+@end
+
+@implementation WKWebViewPoolHandler
+
++ (WKProcessPool *) pool
+{
+    static dispatch_once_t onceToken;
+    static WKProcessPool *_pool;
+    dispatch_once(&onceToken, ^{
+        _pool = [[WKProcessPool alloc] init];
+    });
+    return _pool;
+}
+
 @end
 
 @implementation DSWebView
@@ -36,20 +54,6 @@
 
 #pragma mark - default
 
-- (void)registerUserFunction:(NSString *)aQuery
-{
-    NSDictionary *dictParam = [aQuery parseURLParams];
-    
-    NSString *sKey = dictParam[@"event"];
-    NSString *sValue = dictParam[@"func"];
-    
-    if (sValue && ([sValue isEqualToString:@""] == NO)) {
-        if (self.DSWebViewDelegate && [self.DSWebViewDelegate respondsToSelector:@selector(registerEventWithKey:value:)] ) {
-            [self.DSWebViewDelegate registerEventWithKey:sKey value:sValue];
-        }
-    }
-}
-
 - (void)appinterface:(NSString *)aQuery
 {
     NSDictionary *dictQuery = [aQuery parseURLParams];
@@ -62,80 +66,6 @@
     sFuncName = [sFuncName isEqualToString:@""] ? @"" : [sFuncName lowercaseString];
     
     NSLog(@"aQuery is %@", aQuery);
-    
-    //
-    // 로그인
-    //
-    if ([sFuncName isEqualToString:@"login"]) {
-        NSDictionary *dictParam = [sParam parseURLParams];
-        if (self.DSWebViewDelegate && [self.DSWebViewDelegate respondsToSelector:@selector(afterLogin:)]) {
-            [self.DSWebViewDelegate afterLogin:dictParam];
-        }
-    }
-    else if ([sFuncName isEqualToString:@"autologin"]) {
-        if (self.DSWebViewDelegate && [self.DSWebViewDelegate respondsToSelector:@selector(checkAutoLogin:)]) {
-            [self.DSWebViewDelegate checkAutoLogin:sParam];
-        }
-    }
-    //
-    // 로그아웃
-    //
-    else if ([sFuncName isEqualToString:@"logout"]) {
-        if (self.DSWebViewDelegate && [self.DSWebViewDelegate respondsToSelector:@selector(logout)]) {
-            [self.DSWebViewDelegate logout];
-        }
-    }
-    //
-    // Push Token 요청
-    //
-    else if ([sFuncName isEqualToString:@"getpushtoken"]) {
-        if (self.DSWebViewDelegate && [self.DSWebViewDelegate respondsToSelector:@selector(getPushToken)]) {
-            [self.DSWebViewDelegate getPushToken];
-        }
-    }
-    // ------------------------------------------------------------------------------------------------
-    //  2. 어플리케이션 API
-    //  - 앱 종료 : xFrame5.web2app('appExit', '', '');
-    //  - 이벤트 Lock : xFrame5.web2app('eventLock', '', '');
-    //  - 이벤트 UnLock : xFrame5.web2app('eventUnLock', '', '');
-    // ------------------------------------------------------------------------------------------------
-    
-    // 앱 종료
-    else if ([sFuncName isEqualToString:@"appexit"]) {
-        [AppInit AppExit];
-    }
-    // 이벤트 Lock
-    else if ([sFuncName isEqualToString:@"applock"]) {
-        NSDictionary *dictParam = [sParam parseURLParams];
-        if (self.DSWebViewDelegate && [self.DSWebViewDelegate respondsToSelector:@selector(eventLock:)]) {
-            [self.DSWebViewDelegate eventLock:dictParam];
-        }
-    }
-    // 이벤트 UnLock
-    else if ([sFuncName isEqualToString:@"appunlock"]) {
-        if (self.DSWebViewDelegate && [self.DSWebViewDelegate respondsToSelector:@selector(eventUnLock)]) {
-            [self.DSWebViewDelegate eventUnLock];
-        }
-    }
-    //
-    // 설정화면 표시하기
-    //
-    else if ([sFuncName isEqualToString:@"setup"]) {
-        if (self.DSWebViewDelegate && [self.DSWebViewDelegate respondsToSelector:@selector(openSettingView)]) {
-            [self.DSWebViewDelegate openSettingView];
-        }
-    }
-    
-    else if ([sFuncName isEqualToString:@"outlink"]) {
-        NSDictionary *dictParam = [sParam parseURLParams];
-        if ([[dictParam allKeys] count] == 0) {
-            dictParam = [dictParam mutableCopy];
-            [dictParam setValue:sParam forKey:@"url"];
-        }
-        if (self.DSWebViewDelegate && [self.DSWebViewDelegate respondsToSelector:@selector(outlink:)]) {
-            [self.DSWebViewDelegate outlink:dictParam];
-        }
-    }
     
     // ------------------------------------------------------------------------------------------------
     //  4. Play API
@@ -204,149 +134,243 @@
     }
 }
 
-- (void)webStartLoad
-{
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    
-    if (self.DSWebViewDelegate && [self.DSWebViewDelegate respondsToSelector:@selector(webViewStart:)]) {
-        [self.DSWebViewDelegate webViewStart:_webView.request.URL.absoluteString];
-    }
-}
-
-- (void)webDidFinished:(NSString *)sUrl
-{
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    
-    if (self.DSWebViewDelegate && [self.DSWebViewDelegate respondsToSelector:@selector(webViewLoadCompleted:)]) {
-        [self.DSWebViewDelegate webViewLoadCompleted:_webView.request.URL.absoluteString];
-    }
-}
-
-- (void)webLoadError:(NSError *)error
-{
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    
-    if (self.DSWebViewDelegate && [self.DSWebViewDelegate respondsToSelector:@selector(webViewError:error:)]) {
-        [self.DSWebViewDelegate webViewError:_webView.request.URL.absoluteString error:error];
-    }
-}
-
-
 #pragma mark - init
 
-- (id)initWithFrame:(CGRect)frame isWKWebView:(BOOL)bWKWebView
+- (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
-    if (self) {
-        if (bWKWebView) {
-            _webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
-        } else {
-            _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
-        }
-        [_webView setDelegateViews:self];
-        [self addSubview:_webView];
+    if (self == nil) {
+        return self;
     }
+    
+    WKPreferences *thisPref = [[WKPreferences alloc] init];
+    thisPref.javaScriptCanOpenWindowsAutomatically = YES;
+    thisPref.javaScriptEnabled = YES;
+    
+    NSString *source = @"var meta = document.createElement('meta'); meta.name = 'viewport';meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'; var head = document.getElementsByTagName('head')[0]; head.appendChild(meta);";
+    
+    WKUserScript *userScript = [[WKUserScript alloc] initWithSource:source injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
+    
+    WKWebViewConfiguration* configuration = WKWebViewConfiguration.new;
+    configuration.processPool = [WKWebViewPoolHandler pool];
+    configuration.allowsInlineMediaPlayback = YES;
+    configuration.mediaTypesRequiringUserActionForPlayback = NO;
+    configuration.allowsPictureInPictureMediaPlayback = YES;
+    configuration.mediaTypesRequiringUserActionForPlayback = WKAudiovisualMediaTypeNone;
+    configuration.preferences = thisPref;
+    [configuration.userContentController addUserScript:userScript];
+    
+    _webView = [[WKWebView alloc] initWithFrame:self.bounds configuration:configuration];
+    _webView.UIDelegate = self;
+    _webView.navigationDelegate = self;
+    _webView.scrollView.delegate = self;
+    _webView.multipleTouchEnabled = NO;
+    _webView.scrollView.showsVerticalScrollIndicator = NO;
+    _webView.scrollView.showsHorizontalScrollIndicator = NO;
+    
+    [self addSubview:_webView];
     
     return self;
 }
 
-#pragma mark - UIWebView Delegate Methods
+#pragma mark - alert, prompt, confirm
 
-/*
- * Called on iOS devices that do not have WKWebView when the UIWebView requests to start loading a URL request.
- * Note that it just calls shouldStartDecidePolicy, which is a shared delegate method.
- * Returning YES here would allow the request to complete, returning NO would stop it.
- */
-- (BOOL) webView: (UIWebView *) webView shouldStartLoadWithRequest: (NSURLRequest *) request navigationType: (UIWebViewNavigationType) navigationType
-{
-    return [self shouldStartDecidePolicy: request];
+- (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {
+    
+    dispatch_async(dispatch_get_main_queue(), ^(void) {
+        @try {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:webView.URL.host
+                                                                                     message:message preferredStyle:UIAlertControllerStyleAlert];
+            
+            [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"")
+                                                                style:UIAlertActionStyleCancel
+                                                              handler:^(UIAlertAction *action) {
+                                                                  completionHandler();
+                                                              }]];
+            
+            [[self parentViewController] presentViewController:alertController animated:YES completion:nil];
+        }
+        @catch (NSException *exception) {
+        }
+        @finally {
+        }
+    });
 }
 
-/*
- * Called on iOS devices that do not have WKWebView when the UIWebView starts loading a URL request.
- * Note that it just calls didStartNavigation, which is a shared delegate method.
- */
-- (void) webViewDidStartLoad: (UIWebView *) webView
-{
-    [self didStartNavigation];
+- (void)webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL))completionHandler {
+    
+    dispatch_async(dispatch_get_main_queue(),^{
+        // TODO We have to think message to confirm "YES"
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:webView.URL.host
+                                                                                 message:message preferredStyle:UIAlertControllerStyleAlert];
+        
+        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"")
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction *action) {
+                                                              completionHandler(YES);
+                                                          }]];
+        
+        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"")
+                                                            style:UIAlertActionStyleCancel
+                                                          handler:^(UIAlertAction *action) {
+                                                              completionHandler(NO);
+                                                          }]];
+        
+        [alertController.view setNeedsLayout];
+        
+        [[self parentViewController] presentViewController:alertController animated:YES completion:nil];
+    });
 }
 
-/*
- * Called on iOS devices that do not have WKWebView when a URL request load failed.
- * Note that it just calls failLoadOrNavigation, which is a shared delegate method.
- */
-- (void) webView: (UIWebView *) webView didFailLoadWithError: (NSError *) error
-{
-    [self failLoadOrNavigation: [webView request] withError: error];
+- (void)webView:(WKWebView *)webView runJavaScriptTextInputPanelWithPrompt:(NSString *)prompt defaultText:(NSString *)defaultText initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(NSString *))completionHandler {
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:prompt
+                                                                             message:webView.URL.host preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.text = defaultText;
+    }];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSString *input = ((UITextField *)alertController.textFields.firstObject).text;
+        completionHandler(input);
+    }]];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        completionHandler(nil);
+    }]];
+    
+    [[self parentViewController] presentViewController:alertController animated:YES completion:nil];
 }
 
-/*
- * Called on iOS devices that do not have WKWebView when the UIWebView finishes loading a URL request.
- * Note that it just calls finishLoadOrNavigation, which is a shared delegate method.
- */
-- (void) webViewDidFinishLoad: (UIWebView *) webView
+#pragma mark - New Window
+
+- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message
 {
-    [self finishLoadOrNavigation: [webView request]];
+    
 }
 
-#pragma mark - WKWebView Delegate Methods
-
-/*
- * Called on iOS devices that have WKWebView when the web view wants to start navigation.
- * Note that it calls shouldStartDecidePolicy, which is a shared delegate method,
- * but it's essentially passing the result of that method into decisionHandler, which is a block.
- */
-- (void) webView: (WKWebView *) webView decidePolicyForNavigationAction: (WKNavigationAction *) navigationAction decisionHandler: (void (^)(WKNavigationActionPolicy)) decisionHandler
+//TODO:새창에 대한 처리를 어떻게 할 것인지 정의 필요.
+-(WKWebView *)webView:(WKWebView *)webView createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures
 {
-    decisionHandler([self shouldStartDecidePolicy: [navigationAction request]]);
+    return nil;
 }
 
-/*
- * Called on iOS devices that have WKWebView when the web view starts loading a URL request.
- * Note that it just calls didStartNavigation, which is a shared delegate method.
- */
-- (void) webView: (WKWebView *) webView didStartProvisionalNavigation: (WKNavigation *) navigation
+- (void)webViewDidClose:(WKWebView *)webView
 {
-    [self didStartNavigation];
+
 }
 
-/*
- * Called on iOS devices that have WKWebView when the web view fails to load a URL request.
- * Note that it just calls failLoadOrNavigation, which is a shared delegate method,
- * but it has to retrieve the active request from the web view as WKNavigation doesn't contain a reference to it.
- */
-- (void) webView:(WKWebView *) webView didFailProvisionalNavigation: (WKNavigation *) navigation withError: (NSError *) error
+- (void)webViewWebContentProcessDidTerminate:(WKWebView *)webView
 {
-    [self failLoadOrNavigation: [webView request] withError: error];
+    [webView reload];
 }
 
-/*
- * Called on iOS devices that have WKWebView when the web view begins loading a URL request.
- * This could call some sort of shared delegate method, but is unused currently.
- */
-- (void) webView: (WKWebView *) webView didCommitNavigation: (WKNavigation *) navigation
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation
 {
-    NSLog(@"didCommitNavigation .... ");
-    // do nothing
+    if (self.DSWebViewDelegate && [self.DSWebViewDelegate respondsToSelector:@selector(webView:type:error:)]) {
+        NSString *sUrl = webView.URL.absoluteString;
+        [self.DSWebViewDelegate webView:sUrl type:DSWKWebNavigationTypeStart error:nil];
+    }
 }
 
-/*
- * Called on iOS devices that have WKWebView when the web view fails to load a URL request.
- * Note that it just calls failLoadOrNavigation, which is a shared delegate method.
- */
-- (void) webView: (WKWebView *) webView didFailNavigation: (WKNavigation *) navigation withError: (NSError *) error
+
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
 {
-    [self failLoadOrNavigation: [webView request] withError: error];
+    NSString *scheme = navigationAction.request.URL.scheme.lowercaseString;
+    NSURL *url = navigationAction.request.URL;
+    
+    if (self.DSWebViewDelegate && [self.DSWebViewDelegate respondsToSelector:@selector(webView:type:error:)]) {
+        NSString *sUrl = navigationAction.request.URL.absoluteString;
+        [self.DSWebViewDelegate webView:sUrl type:DSWKWebNavigationTypeNavigation error:nil];
+    }
+    
+    if ([scheme isBasicProtocol]) {
+        //scheme이 http, https, about인 경우는 그냥 실행
+        decisionHandler(WKNavigationActionPolicyAllow);
+        return ;
+    }
+    else if ([scheme isAppstoreProtocol]) {
+        //appstore로 이동하기 위한 scheme인 경우 외부 브라우저 호출
+        [[UIApplication sharedApplication] openURL:url options:@{}
+                                 completionHandler:^(BOOL success) {}
+         ];
+        decisionHandler(WKNavigationActionPolicyCancel);
+        return ;
+    }
+//    else if ([scheme isEqualToString:@"ose"]) {
+//
+//        NSString *host = [url.host lowercaseString];
+//        NSString *query = url.query; //[url.query stringByRemovingPercentEncoding];
+//        NSDictionary *dictParam = [query toDictionary];
+//        
+//        if ([host isEqualToString:@"status"]) {
+//            query = [query stringByRemovingPercentEncoding];
+//            UIColor *color = [query colorFromHex];
+//            if (self.delegate && [self.delegate respondsToSelector:@selector(changeStatusColor:)]) {
+//                [self.delegate changeStatusColor:color];
+//            }
+//        }
+//        else if ([host isEqualToString:@"reload"]) {
+//            [[NSNotificationCenter defaultCenter] postNotificationName:@"MainRefreshNotification" object:nil];
+//        }
+//        else {
+//            [self doAppSchemeProcess:host dict:dictParam];
+//        }
+//
+//        decisionHandler(WKNavigationActionPolicyCancel);
+//        return ;
+//    }
+    else {
+        [[UIApplication sharedApplication] openURL:url options:@{}
+                                 completionHandler:^(BOOL success) {}
+         ];
+        decisionHandler(WKNavigationActionPolicyCancel);
+        
+        return ;
+    }
 }
 
-/*
- * Called on iOS devices that have WKWebView when the web view finishes loading a URL request.
- * Note that it just calls finishLoadOrNavigation, which is a shared delegate method.
- */
-- (void) webView: (WKWebView *) webView didFinishNavigation: (WKNavigation *) navigation
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler
 {
-    [self finishLoadOrNavigation: [webView request]];
+    //Cookie 동기화...
+    NSHTTPURLResponse *response = (NSHTTPURLResponse *)navigationResponse.response;
+    NSArray *cookies =[NSHTTPCookie cookiesWithResponseHeaderFields:[response allHeaderFields] forURL:response.URL];
+    
+    for (NSHTTPCookie *cookie in cookies) {
+        NSLog(@"cookie is %@", cookie);
+        [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie:cookie];
+    }
+    
+    decisionHandler(WKNavigationResponsePolicyAllow);
 }
+
+- (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation
+{
+    if (self.DSWebViewDelegate && [self.DSWebViewDelegate respondsToSelector:@selector(webView:type:error:)]) {
+        [self.DSWebViewDelegate webView:webView.URL.absoluteString type:DSWKWebNavigationTypeFinish error:nil];
+    }
+    
+    //    if (_popupHeaderView) {
+    //        [webView evaluateJavaScript:@"document.title"
+    //                  completionHandler:^(id result, NSError *error) {
+    //                      self->_popupHeaderView.titleLabel.text = result;
+    //                  }];
+    //    }
+}
+
+- (void)webView:(WKWebView *)webView didFailNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error
+{
+    if (self.DSWebViewDelegate && [self.DSWebViewDelegate respondsToSelector:@selector(webView:type:error:)]) {
+        NSString *sUrl = webView.URL.absoluteString;
+        [self.DSWebViewDelegate webView:sUrl type:DSWKWebNavigationTypeFailed error:error];
+    }
+}
+
+- (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation withError:(NSError *)error
+{
+    NSLog(@"[1]error is %@", error);
+}
+
 
 #pragma mark - Shared Delegate Methods
 
@@ -359,10 +383,7 @@
     
     // 프레임워크 스킴
     if ([scheme isEqualToString:@"dsapp"]) {
-        if ([request.URL.host isEqualToString:@"register"]) {
-            [self registerUserFunction:request.URL.query];
-        }
-        else if ([request.URL.host isEqualToString:@"appinterface"]) {
+        if ([request.URL.host isEqualToString:@"appinterface"]) {
             [self appinterface:request.URL.query];
         }
         
@@ -386,17 +407,17 @@
     }
     else if ([scheme isEqualToString:@"http"] || [scheme isEqualToString:@"https"] || [request.URL.absoluteString isEqualToString:@"about:blank"]) {
 
-        if (self.DSWebViewDelegate && [self.DSWebViewDelegate respondsToSelector:@selector(shouldStartLoadWithRequest:)]) {
-            [self.DSWebViewDelegate shouldStartLoadWithRequest:request];
-        }
+//        if (self.DSWebViewDelegate && [self.DSWebViewDelegate respondsToSelector:@selector(shouldStartLoadWithRequest:)]) {
+//            [self.DSWebViewDelegate shouldStartLoadWithRequest:request];
+//        }
         
         return YES;
     }
     else { // 결제관련
         
-        if (self.DSWebViewDelegate && [self.DSWebViewDelegate respondsToSelector:@selector(shouldStartLoadWithRequest:)]) {
-            [self.DSWebViewDelegate shouldStartLoadWithRequest:request];
-        }
+//        if (self.DSWebViewDelegate && [self.DSWebViewDelegate respondsToSelector:@selector(shouldStartLoadWithRequest:)]) {
+//            [self.DSWebViewDelegate shouldStartLoadWithRequest:request];
+//        }
         
         if ([scheme isEqualToString:@"ispmobile"]){
             if([[UIApplication sharedApplication] canOpenURL:request.URL]) {
@@ -551,37 +572,6 @@
     return YES;
 }
 
-/*
- * This is called whenever the web view has started navigating.
- */
-- (void) didStartNavigation
-{
-    [self webStartLoad];
-}
-
-/*
- * This is called when navigation failed.
- */
-- (void) failLoadOrNavigation: (NSURLRequest *) request withError: (NSError *) error
-{
-    [self webLoadError:error];
-}
-
-/*
- * This is called when navigation succeeds and is complete.
- */
-- (void) finishLoadOrNavigation: (NSURLRequest *) request
-{
-    bLoaded = YES;
-    
-    if (_webView && ([_webView isKindOfClass:[UIWebView class]] || [_webView isKindOfClass:[WKWebView class]])) {
-        NSString *sUrl = _webView.request.URL.absoluteString;
-        if (sUrl && [sUrl isKindOfClass:[NSString class]]) {
-            [self webDidFinished:sUrl];
-        }
-    }
-}
-
 - (BOOL)canGoBack
 {
     return [_webView canGoBack];
@@ -591,6 +581,5 @@
 {
     [_webView goBack];
 }
-
 
 @end

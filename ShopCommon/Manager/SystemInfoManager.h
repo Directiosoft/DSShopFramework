@@ -15,6 +15,8 @@
  - [ISystemInfoManager deviceName];
 */
 
+NS_ASSUME_NONNULL_BEGIN
+
 #define ISystemInfoManager [SystemInfoManager sharedInstance]
 
 @interface SystemInfoManager : NSObject
@@ -36,3 +38,5 @@
 - (NSString *)appVersion;
 
 @end
+
+NS_ASSUME_NONNULL_END

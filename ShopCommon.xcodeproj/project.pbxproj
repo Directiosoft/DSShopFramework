@@ -18,15 +18,11 @@
 		2EEB0D611D6FFF5E00C51DAE /* NSDate+Shop.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEB0D5F1D6FFF5E00C51DAE /* NSDate+Shop.m */; };
 		2EEB0D641D7001A300C51DAE /* UIColor+Shop.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EEB0D621D7001A300C51DAE /* UIColor+Shop.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2EEB0D651D7001A300C51DAE /* UIColor+Shop.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEB0D631D7001A300C51DAE /* UIColor+Shop.m */; };
-		3A22662F209B0C3300BEF593 /* UIWebView+FLUIWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A226625209B0C3300BEF593 /* UIWebView+FLUIWebView.m */; };
-		3A226630209B0C3300BEF593 /* WKWebView+FLWKWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A226626209B0C3300BEF593 /* WKWebView+FLWKWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A226631209B0C3300BEF593 /* DSWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A226627209B0C3300BEF593 /* DSWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A226632209B0C3300BEF593 /* UIWebView+FLUIWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A226628209B0C3300BEF593 /* UIWebView+FLUIWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A226633209B0C3300BEF593 /* FLWebViewProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A226629209B0C3300BEF593 /* FLWebViewProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A226634209B0C3300BEF593 /* WKWebView+FLWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A22662A209B0C3300BEF593 /* WKWebView+FLWKWebView.m */; };
 		3A226635209B0C3300BEF593 /* DSWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A22662B209B0C3300BEF593 /* DSWebView.m */; };
-		3A226636209B0C3300BEF593 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A22662D209B0C3300BEF593 /* Reachability.m */; };
-		3A226637209B0C3300BEF593 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A22662E209B0C3300BEF593 /* Reachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A465BAC23094AF700182273 /* DSCommonDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A465BAB23094AF700182273 /* DSCommonDefine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A465BB32309527300182273 /* UIView+Shop.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A465BB12309527300182273 /* UIView+Shop.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A465BB42309527300182273 /* UIView+Shop.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A465BB22309527300182273 /* UIView+Shop.m */; };
 		3ADB571820982021005F8179 /* UserDataManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ADB571620982021005F8179 /* UserDataManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3ADB571920982021005F8179 /* UserDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADB571720982021005F8179 /* UserDataManager.m */; };
 		3ADB571C209823BE005F8179 /* SystemInfoManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ADB571A209823BE005F8179 /* SystemInfoManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -61,15 +57,11 @@
 		2EEB0D5F1D6FFF5E00C51DAE /* NSDate+Shop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Shop.m"; sourceTree = "<group>"; };
 		2EEB0D621D7001A300C51DAE /* UIColor+Shop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Shop.h"; sourceTree = "<group>"; };
 		2EEB0D631D7001A300C51DAE /* UIColor+Shop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Shop.m"; sourceTree = "<group>"; };
-		3A226625209B0C3300BEF593 /* UIWebView+FLUIWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+FLUIWebView.m"; sourceTree = "<group>"; };
-		3A226626209B0C3300BEF593 /* WKWebView+FLWKWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WKWebView+FLWKWebView.h"; sourceTree = "<group>"; };
 		3A226627209B0C3300BEF593 /* DSWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSWebView.h; sourceTree = "<group>"; };
-		3A226628209B0C3300BEF593 /* UIWebView+FLUIWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+FLUIWebView.h"; sourceTree = "<group>"; };
-		3A226629209B0C3300BEF593 /* FLWebViewProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLWebViewProvider.h; sourceTree = "<group>"; };
-		3A22662A209B0C3300BEF593 /* WKWebView+FLWKWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+FLWKWebView.m"; sourceTree = "<group>"; };
 		3A22662B209B0C3300BEF593 /* DSWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSWebView.m; sourceTree = "<group>"; };
-		3A22662D209B0C3300BEF593 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		3A22662E209B0C3300BEF593 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		3A465BAB23094AF700182273 /* DSCommonDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSCommonDefine.h; sourceTree = "<group>"; };
+		3A465BB12309527300182273 /* UIView+Shop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Shop.h"; sourceTree = "<group>"; };
+		3A465BB22309527300182273 /* UIView+Shop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Shop.m"; sourceTree = "<group>"; };
 		3ADB571620982021005F8179 /* UserDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDataManager.h; sourceTree = "<group>"; };
 		3ADB571720982021005F8179 /* UserDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDataManager.m; sourceTree = "<group>"; };
 		3ADB571A209823BE005F8179 /* SystemInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemInfoManager.h; sourceTree = "<group>"; };
@@ -92,6 +84,8 @@
 		2E0A27DC1D50E1DD00A02398 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				3A465BB12309527300182273 /* UIView+Shop.h */,
+				3A465BB22309527300182273 /* UIView+Shop.m */,
 				2E0A27E51D50EDB500A02398 /* NSData+Shop.h */,
 				2E0A27E61D50EDB500A02398 /* NSData+Shop.m */,
 				2E0A27E71D50EDB500A02398 /* NSString+Shop.h */,
@@ -123,8 +117,8 @@
 		2E72E15C1D4488BA00D91FBA /* ShopCommon */ = {
 			isa = PBXGroup;
 			children = (
+				3A465BAB23094AF700182273 /* DSCommonDefine.h */,
 				3A226624209B0C3300BEF593 /* DSWebView */,
-				3A22662C209B0C3300BEF593 /* Library */,
 				3ADB571E2098268E005F8179 /* Controller */,
 				3ADB571520982021005F8179 /* Manager */,
 				2E0A27DC1D50E1DD00A02398 /* Category */,
@@ -139,24 +133,10 @@
 		3A226624209B0C3300BEF593 /* DSWebView */ = {
 			isa = PBXGroup;
 			children = (
-				3A226625209B0C3300BEF593 /* UIWebView+FLUIWebView.m */,
-				3A226626209B0C3300BEF593 /* WKWebView+FLWKWebView.h */,
 				3A226627209B0C3300BEF593 /* DSWebView.h */,
-				3A226628209B0C3300BEF593 /* UIWebView+FLUIWebView.h */,
-				3A226629209B0C3300BEF593 /* FLWebViewProvider.h */,
-				3A22662A209B0C3300BEF593 /* WKWebView+FLWKWebView.m */,
 				3A22662B209B0C3300BEF593 /* DSWebView.m */,
 			);
 			path = DSWebView;
-			sourceTree = "<group>";
-		};
-		3A22662C209B0C3300BEF593 /* Library */ = {
-			isa = PBXGroup;
-			children = (
-				3A22662D209B0C3300BEF593 /* Reachability.m */,
-				3A22662E209B0C3300BEF593 /* Reachability.h */,
-			);
-			path = Library;
 			sourceTree = "<group>";
 		};
 		3ADB571520982021005F8179 /* Manager */ = {
@@ -190,14 +170,12 @@
 				2EEB0D641D7001A300C51DAE /* UIColor+Shop.h in Headers */,
 				3ADB5721209826AE005F8179 /* BaseController.h in Headers */,
 				3A226631209B0C3300BEF593 /* DSWebView.h in Headers */,
-				3A226632209B0C3300BEF593 /* UIWebView+FLUIWebView.h in Headers */,
-				3A226637209B0C3300BEF593 /* Reachability.h in Headers */,
-				3A226630209B0C3300BEF593 /* WKWebView+FLWKWebView.h in Headers */,
 				3ADB571C209823BE005F8179 /* SystemInfoManager.h in Headers */,
 				2EEB0D601D6FFF5E00C51DAE /* NSDate+Shop.h in Headers */,
-				3A226633209B0C3300BEF593 /* FLWebViewProvider.h in Headers */,
 				3ADB571820982021005F8179 /* UserDataManager.h in Headers */,
 				2E0A27EB1D50EDB500A02398 /* NSString+Shop.h in Headers */,
+				3A465BAC23094AF700182273 /* DSCommonDefine.h in Headers */,
+				3A465BB32309527300182273 /* UIView+Shop.h in Headers */,
 				2E72E1671D448E8300D91FBA /* AppInit.h in Headers */,
 				2E72E15E1D4488BB00D91FBA /* ShopCommon.h in Headers */,
 			);
@@ -231,7 +209,7 @@
 		2E72E1511D4488BA00D91FBA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = pionnet;
 				TargetAttributes = {
 					2E72E1591D4488BA00D91FBA = {
@@ -241,10 +219,9 @@
 			};
 			buildConfigurationList = 2E72E1541D4488BA00D91FBA /* Build configuration list for PBXProject "ShopCommon" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -274,15 +251,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3ADB571D209823BE005F8179 /* SystemInfoManager.m in Sources */,
-				3A226634209B0C3300BEF593 /* WKWebView+FLWKWebView.m in Sources */,
 				3ADB571920982021005F8179 /* UserDataManager.m in Sources */,
-				3A22662F209B0C3300BEF593 /* UIWebView+FLUIWebView.m in Sources */,
 				3A226635209B0C3300BEF593 /* DSWebView.m in Sources */,
 				2E0A27EA1D50EDB500A02398 /* NSData+Shop.m in Sources */,
 				2EEB0D651D7001A300C51DAE /* UIColor+Shop.m in Sources */,
 				2EEB0D611D6FFF5E00C51DAE /* NSDate+Shop.m in Sources */,
+				3A465BB42309527300182273 /* UIView+Shop.m in Sources */,
 				3ADB5722209826AE005F8179 /* BaseController.m in Sources */,
-				3A226636209B0C3300BEF593 /* Reachability.m in Sources */,
 				2E72E1681D448E8300D91FBA /* AppInit.m in Sources */,
 				2E0A27EC1D50EDB500A02398 /* NSString+Shop.m in Sources */,
 			);
@@ -295,6 +270,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -353,6 +329,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";

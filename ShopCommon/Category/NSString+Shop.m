@@ -73,6 +73,22 @@
              [sUrl isEqualToString:@"itms-appss"] );
 }
 
+- (BOOL)isBasicProtocol
+{
+    if ([self isEqualToString:@"http"] || [self isEqualToString:@"https"] || [self isEqualToString:@"about"]) {
+        return YES;
+    }
+    else return NO;
+}
+
+- (BOOL)isAppstoreProtocol
+{
+    if ([self isEqualToString:@"itms-apps"] || [self isEqualToString:@"itms-appss"]) {
+        return YES;
+    }
+    else return NO;
+}
+
 - (NSString *)trim
 {
     return [self stringByReplacingOccurrencesOfString:@" " withString:@""];
