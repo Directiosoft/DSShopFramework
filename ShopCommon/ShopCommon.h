@@ -7,17 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <ShopCommon/AppInit.h>
-#import <ShopCommon/DSCommonDefine.h>
+#import "AppInit.h"
+#import "DSCommonDefine.h"
 
-#import <ShopCommon/NSString+Shop.h>
-#import <ShopCommon/NSData+Shop.h>
-#import <ShopCommon/NSDate+Shop.h>
-#import <ShopCommon/UIColor+Shop.h>
-#import <ShopCommon/UIView+Shop.h>
+#import "NSString+Shop.h"
+#import "NSData+Shop.h"
+#import "NSDate+Shop.h"
+#import "UIColor+Shop.h"
+#import "UIView+Shop.h"
 
-#import <ShopCommon/SystemInfoManager.h>
-#import <ShopCommon/UserDataManager.h>
+#import "SystemInfoManager.h"
+#import "UserDataManager.h"
 
-#import <ShopCommon/DSWebView.h>
+#import "DSWebView.h"
 
